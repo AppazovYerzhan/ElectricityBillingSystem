@@ -34,12 +34,12 @@ public class ElectricityBilling {
             try (PreparedStatement ps = database.getConnection().prepareStatement(query)) {
                 ps.setString(1, techniques.get(i));
                 rs = ps.executeQuery();
+                rs.next();
+                //adding values that we got from query to the array "technique_consumption"
+                technique_consumption.add(rs.getInt("technique_consumption"));
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            rs.next();
-            //adding values that we got from query to the array "technique_consumption"
-            technique_consumption.add(rs.getInt("technique_consumption"));
         }
         //loop for outputting consumption in specific format
         for (int i = 0; i < number; i++) {

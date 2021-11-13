@@ -11,7 +11,6 @@ public class Database {
             Class.forName("org.postgresql.Driver");
             // Establish the connection
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ElectricityBillingSystem", "postgres", "admin");
-            System.out.println(connection + "---connection");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
